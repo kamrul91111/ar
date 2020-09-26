@@ -57,7 +57,7 @@ export default class App extends React.Component {
           horizontal={true}
           data={this.state.data}
           renderItem={({ item }) => <Item item={item}/>}
-          keyExtractor={item => item.email}
+          keyExtractor={item => item.name}
           showsHorizontalScrollIndicator={false}
         />
         <Text style={styles.text}>Plant Joke of the day!</Text>
