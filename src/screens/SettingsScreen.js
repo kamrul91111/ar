@@ -1,33 +1,55 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View, FlatList } from 'react-native';
-import PropTypes from 'prop-types';
+import PropTypes, { func } from 'prop-types';
 import { useTheme } from 'react-navigation';
 import { gStyle, images} from '../constants';
 import Touch from '../components/Touch';
-
+import { firebase } from '../firebase/config';
 
 export default class App extends React.Component {
+  constructor(props){
+    super(props);
 
+    this.state = {
+      plants: [],
+    }
+    this.readData()
+  }
+
+  // componentWillMount() {    
+  //   var reference = firebase.database().ref('/');
+  //   reference.once('value').then(snapshot => {
+  //     this.setState({plants: snapshot.val()});
+  //     // console.log(snapshot.val());
+  //   });  
+  // }
+  readData(){
+    var reference = firebase.database().ref('/');
+    reference.once('value').then(snapshot => {
+      this.setState({plants: snapshot.val()});
+      // console.log(snapshot.val());
+    });   
+  }
+
+  
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>
           Plants
           </Text>
-          <FlatList 
+          {/* <FlatList 
               style={styles.listItem}
               data={[{name:'bob'}, {name : 'Tim'}]}
               keyExtractor={item => item.name}
               renderItem={({ item }) => <Text>{item.name}</Text>}
-          />
-          
-          
-          
-          {/* <Touch
-            onPress={() => navigation.navigate('MultiBase')}
-            text="Jump to Multi tab"
           /> */}
-
+          {/* <Text>{this.state.plants}</Text> */}
+          <FlatList 
+            data={this.state.plants}
+            renderItem={({ item }) => <Text>{item}</Text>}
+            keyExtractor = {item => item.key}
+          />
       </View>
     );
   }

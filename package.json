@@ -27,6 +27,7 @@
     "expo": "^38.0.0",
     "expo-asset": "~8.1.7",
     "expo-font": "~8.2.1",
+    "firebase": "^7.21.1",
     "native-base": "^2.13.14",
     "prop-types": "^15.7.2",
     "react": "16.11.0",
