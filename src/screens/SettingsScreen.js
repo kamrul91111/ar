@@ -27,6 +27,7 @@ export default class App extends React.Component {
     var reference = firebase.database().ref('/');
     reference.once('value').then(snapshot => {
       this.setState({plants: snapshot.val()});
+      console.log(this.state.plants);
       // console.log(snapshot.val());
     });   
   }
@@ -45,11 +46,12 @@ export default class App extends React.Component {
               renderItem={({ item }) => <Text>{item.name}</Text>}
           /> */}
           {/* <Text>{this.state.plants}</Text> */}
-          <FlatList 
+          {/* <FlatList 
             data={this.state.plants}
-            renderItem={({ item }) => <Text>{item}</Text>}
-            keyExtractor = {item => item.key}
-          />
+            keyExtractor = {(x, i ) => i }
+            renderItem={({ item }) => <Text>{`${item.Name}`}</Text>}
+            
+          /> */}
       </View>
     );
   }
