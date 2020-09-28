@@ -23,16 +23,31 @@ export default class App extends React.Component {
   //     // console.log(snapshot.val());
   //   });  
   // }
+  
+  Item({ item }) {
+    return (
+    <View style={styles.listItem}>
+    <View style={{ alignItems: 'center', flex: 1 }}>
+    {/* <Text style={{ fontWeight: 'bold', flex: 1, marginTop: 20 }}>
+    {item}
+    </Text> */}
+    <Text>{item.Description}</Text>
+    </View>
+    </View>
+    );
+   }
+
+  
   readData(){
     var reference = firebase.database().ref('/');
     reference.once('value').then(snapshot => {
       this.setState({plants: snapshot.val()});
       console.log(this.state.plants);
+      console.log(Object.keys(this.state.plants));
       // console.log(snapshot.val());
     });   
   }
 
-  
   render() {
     return (
       <View style={styles.container}>
@@ -48,9 +63,7 @@ export default class App extends React.Component {
           {/* <Text>{this.state.plants}</Text> */}
           {/* <FlatList 
             data={this.state.plants}
-            keyExtractor = {(x, i ) => i }
-            renderItem={({ item }) => <Text>{`${item.Name}`}</Text>}
-            
+            renderItem={({ item }) => <Item item={item} />}
           /> */}
       </View>
     );
