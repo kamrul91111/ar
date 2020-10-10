@@ -1,6 +1,6 @@
 import * as firebase from 'firebase';
 
-
+// configuration file for the database
 const firebaseConfig = {
   apiKey: "AIzaSyCSGxUwqhBcKfLIfgC51-aiuv1B-XoQkX8",
   authDomain: "ar-gardening-5eeb1.firebaseapp.com",
@@ -11,6 +11,7 @@ const firebaseConfig = {
   appId: "1:461196396366:web:7b5b3f8ea9c5ad8303801f"
 };
 
+// Initialise the database when the screen start
 if (firebase.apps.length === 0) {
   let connection = firebase.initializeApp(firebaseConfig);
     // console.log(connection);

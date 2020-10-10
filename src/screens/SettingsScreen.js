@@ -5,6 +5,7 @@ import { useTheme } from 'react-navigation';
 import { gStyle, images} from '../constants';
 import Touch from '../components/Touch';
 import { firebase } from '../firebase/config';
+import '../plants.json';
 
 export default class App extends React.Component {
   constructor(props){
@@ -12,9 +13,12 @@ export default class App extends React.Component {
 
     this.state = {
       plants: [],
+      indoorPlants: [],
     }
     this.readData()
   }
+
+  
 
   // componentWillMount() {    
   //   var reference = firebase.database().ref('/');
@@ -23,6 +27,21 @@ export default class App extends React.Component {
   //     // console.log(snapshot.val());
   //   });  
   // }
+
+  // Array [
+  //   undefined,
+  //   Object {
+  //     "Diseases": "random disease",
+  //     "Food": "ABC manure",
+  //     "ID": 1,
+  //     "Instructions": "1. Dig hole, 2.Put seed",
+  //     "Name": "test",
+  //     "Season": "Summer",
+  //     "Stores": "Bunnings",
+  //     "Type": "indoor",
+  //     "Water_Frequency": "3 times a day",
+  //   },
+  // ]
   
   Item({ item }) {
     return (
@@ -41,30 +60,52 @@ export default class App extends React.Component {
   readData(){
     var reference = firebase.database().ref('/');
     reference.once('value').then(snapshot => {
-      this.setState({plants: snapshot.val()});
-      console.log(this.state.plants);
-      console.log(Object.keys(this.state.plants));
-      // console.log(snapshot.val());
+      let data = [];
+      for (let index = 0; index < snapshot.val().length; index++) {
+        const element = snapshot.val()[index];
+        // console.log("Array Object: ", element);
+        if (element) {
+          data.push(element);
+        }
+      }
+
+
+      this.setState({plants: data});
+      // console.log("Snap.val(): ", snapshot.val());
+      // console.log("Plants State: ", this.state.plants);
+      // console.log(Object.keys(this.state.plants));
+      // console.log()
     });   
   }
 
+  
+
   render() {
+    console.log("FlatList Test:", this.state.plants);
+    const renderItem = ({ item }) => (
+      <>
+        <Text>{item.ID}</Text>
+        <Text>{item.Name}</Text>
+        <Text>{item.Food}</Text>
+        <Text>{item.Diseases}</Text>
+        <Text>{item.Season}</Text>
+        <Text>{item.Type}</Text>
+        <Text>{item.Water_Frequency}</Text>
+        <Text>{item.Stores}</Text>
+      </>
+    )
+    
     return (
       <View style={styles.container}>
         <Text style={styles.text}>
           Plants
           </Text>
-          {/* <FlatList 
+          <FlatList 
               style={styles.listItem}
-              data={[{name:'bob'}, {name : 'Tim'}]}
-              keyExtractor={item => item.name}
-              renderItem={({ item }) => <Text>{item.name}</Text>}
-          /> */}
-          {/* <Text>{this.state.plants}</Text> */}
-          {/* <FlatList 
-            data={this.state.plants}
-            renderItem={({ item }) => <Item item={item} />}
-          /> */}
+              data={this.state.plants}
+              keyExtractor={item => item.ID}
+              renderItem={renderItem}
+          />
       </View>
     );
   }
