@@ -10,6 +10,8 @@ export default class App extends React.Component {
    return(
    <View>
      <Text>AR Screen</Text>
+     <button>
+       </button>
    </View>
    );
  }
