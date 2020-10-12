@@ -3,23 +3,23 @@ import { colors } from '../constants';
 
 // navigation stacks
 import HomeStack from './HomeStack';
-import MultiStack from './MultiStack';
+import ArStack from './ArStack';
 import StatsStack from './StatsStack';
-import SettingsStack from './SettingsStack';
+import PlantStack from './PlantStack';
 
 export default createBottomTabNavigator(
   {
     HomeStack,
-    MultiStack,
+    ArStack,
     StatsStack,
-    SettingsStack
+    PlantStack
   },
   {
     initialRouteName: 'HomeStack',
     tabBarOptions: {
       activeTintColor: {
-        light: colors.darkColor,
-        dark: colors.grey
+        light: colors.blue,
+        dark: colors.blue
       },
       inactiveTintColor: {
         light: colors.grey,

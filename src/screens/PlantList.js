@@ -5,7 +5,6 @@ import { useTheme } from 'react-navigation';
 import { gStyle, images} from '../constants';
 import Touch from '../components/Touch';
 import { firebase } from '../firebase/config';
-import '../plants.json';
 
 export default class App extends React.Component {
   constructor(props){
