@@ -2,30 +2,27 @@ import React from 'react';
 import { Image, StyleSheet, Text, View, FlatList } from 'react-native';
 import PropTypes, { func } from 'prop-types';
 import { useTheme } from 'react-navigation';
-import { gStyle, images} from '../constants';
+import { gStyle, images } from '../constants';
 import Touch from '../components/Touch';
 import { firebase } from '../firebase/config';
-import '../plants.json';
 
 export default class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
       plants: [],
-      indoorPlants: [],
-    }
-    this.readData()
+      indoorPlants: []
+    };
+    this.readData();
   }
 
-  
-
-  // componentWillMount() {    
+  // componentWillMount() {
   //   var reference = firebase.database().ref('/');
   //   reference.once('value').then(snapshot => {
   //     this.setState({plants: snapshot.val()});
   //     // console.log(snapshot.val());
-  //   });  
+  //   });
   // }
 
   // Array [
@@ -42,22 +39,21 @@ export default class App extends React.Component {
   //     "Water_Frequency": "3 times a day",
   //   },
   // ]
-  
+
   Item({ item }) {
     return (
-    <View style={styles.listItem}>
-    <View style={{ alignItems: 'center', flex: 1 }}>
-    {/* <Text style={{ fontWeight: 'bold', flex: 1, marginTop: 20 }}>
+      <View style={styles.listItem}>
+        <View style={{ alignItems: 'center', flex: 1 }}>
+          {/* <Text style={{ fontWeight: 'bold', flex: 1, marginTop: 20 }}>
     {item}
     </Text> */}
-    <Text>{item.Description}</Text>
-    </View>
-    </View>
+          <Text>{item.Description}</Text>
+        </View>
+      </View>
     );
-   }
+  }
 
-  
-  readData(){
+  readData() {
     var reference = firebase.database().ref('/');
     reference.once('value').then(snapshot => {
       let data = [];
@@ -69,19 +65,16 @@ export default class App extends React.Component {
         }
       }
 
-
-      this.setState({plants: data});
+      this.setState({ plants: data });
       // console.log("Snap.val(): ", snapshot.val());
       // console.log("Plants State: ", this.state.plants);
       // console.log(Object.keys(this.state.plants));
       // console.log()
-    });   
+    });
   }
 
-  
-
   render() {
-    console.log("FlatList Test:", this.state.plants);
+    console.log('FlatList Test:', this.state.plants);
     const renderItem = ({ item }) => (
       <>
         <Text>{item.ID}</Text>
@@ -93,44 +86,40 @@ export default class App extends React.Component {
         <Text>{item.Water_Frequency}</Text>
         <Text>{item.Stores}</Text>
       </>
-    )
-    
+    );
+
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>
-          Plants
-          </Text>
-          <FlatList 
-              style={styles.listItem}
-              data={this.state.plants}
-              keyExtractor={item => item.ID}
-              renderItem={renderItem}
-          />
+        <Text style={styles.text}>Plants</Text>
+        <FlatList
+          style={styles.listItem}
+          data={this.state.plants}
+          keyExtractor={item => item.ID}
+          renderItem={renderItem}
+        />
       </View>
     );
   }
 }
 
-
 const styles = StyleSheet.create({
   container: {
     // flex: 1,
-    backgroundColor: '#F7F7F7',
+    backgroundColor: '#F7F7F7'
     // marginTop:60
   },
-  listItem:{
+  listItem: {
     fontSize: 40,
-    textAlign: "center",
+    textAlign: 'center',
     margin: 'auto'
   },
   text: {
-    marginTop: 16, 
+    marginTop: 16,
     fontSize: 34,
-     textAlign: "center",
-     fontSize: 30,
+    textAlign: 'center',
+    fontSize: 30
   }
 });
-
 
 // SettingsScreen.navigationOptions = ({ theme }) => {
 //   return {
@@ -151,7 +140,6 @@ const styles = StyleSheet.create({
 //     )
 //   };
 // };
-
 
 // SettingsScreen.propTypes = {
 //   // required
