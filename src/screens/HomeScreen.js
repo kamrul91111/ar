@@ -10,7 +10,7 @@ import {
   View,
   StyleSheet,
   FlatList,
-  Image
+  Image,
 } from 'react-native';
 import { useTheme } from 'react-navigation';
 import { gStyle } from '../constants';
@@ -88,7 +88,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Text style={styles.text}>Home</Text>
         <FlatList
           // style={{flex:1}}
@@ -101,14 +101,14 @@ export default class App extends React.Component {
         <SliderBox
           //ImageComponent={FastImage}
           images={this.state.images}
-          sliderBoxHeight={300}
+          sliderBoxHeight={200}
           dotColor="#000000"
           inactiveDotColor="#90A4AE"
           paginationBoxVerticalPadding={20}
           autoplay
           circleLoop
           resizeMethod="auto"
-          resizeMode="contain"
+          resizeMode="cover"
           paginationBoxStyle={{
             position: 'absolute',
             bottom: 0,
@@ -116,7 +116,7 @@ export default class App extends React.Component {
             alignItems: 'center',
             alignSelf: 'center',
             justifyContent: 'center',
-            paddingVertical: 20
+            paddingVertical: 10
           }}
           dotStyle={{
             width: 10,
@@ -130,7 +130,7 @@ export default class App extends React.Component {
           ImageComponentStyle={{ borderRadius: 15, width: '97%', marginTop: 5 }}
           imageLoadingColor="#2196F3"
         />
-      </View>
+      </ScrollView>
     );
   }
 }
