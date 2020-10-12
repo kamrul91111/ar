@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { createStackNavigator } from 'react-navigation-stack';
 
 // screens
-import SettingsScreen from '../screens/SettingsScreen';
+import PlantList from '../screens/PlantList';
 
 // icons
 import SvgCog from '../components/icons/Svg.Cog';
@@ -16,16 +16,16 @@ SettingsTabBarIcon.propTypes = {
 
 // Settings Stack
 // /////////////////////////////////////////////////////////////////////////////
-const SettingsStack = createStackNavigator(
+const PlantStack = createStackNavigator(
   {
-    Settings: SettingsScreen
+    Plants: PlantList
   },
   {
     navigationOptions: {
-      tabBarLabel: 'Settings',
+      tabBarLabel: 'Plants',
       tabBarIcon: SettingsTabBarIcon
     }
   }
 );
 
-export default SettingsStack;
+export default PlantStack;

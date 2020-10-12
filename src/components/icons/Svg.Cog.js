@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Svg, { Path } from 'react-native-svg';
 import { useTheme } from 'react-navigation';
 import { colors } from '../../constants';
+import { FontAwesome } from '@expo/vector-icons';
 
 const SvgCog = ({ active, size }) => {
   const theme = useTheme();

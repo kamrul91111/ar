@@ -51,7 +51,7 @@ export default class App extends React.Component {
   render(){
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Home</Text>
+        <Text style={styles.text}>Hello User</Text>
         <FlatList
           // style={{flex:1}}
           horizontal={true}
@@ -89,6 +89,7 @@ const styles = StyleSheet.create({
     fontSize: 34,
      textAlign: "center",
      fontSize: 30,
+     fontFamily: 'Roboto'
   }
 });
 

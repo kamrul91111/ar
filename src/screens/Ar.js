@@ -15,10 +15,7 @@ export default class App extends React.Component {
  }
 }
 
-// MultiBaseScreen.navigationOptions = {
-//   headerTitleStyle: gStyle.headerTitleStyle,
-//   title: 'AR Screen'
-// };
+
 
 // MultiBaseScreen.propTypes = {
 //   // required
