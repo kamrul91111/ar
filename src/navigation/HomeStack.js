@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createStackNavigator } from 'react-navigation-stack';
 import Bugs from '../screens/Bugs';
-import One from '../screens/One';
+import Shop from '../screens/Shop';
 import Two from '../screens/Two';
 
 // screens
@@ -23,7 +23,7 @@ const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
     Bugs: Bugs,
-    One: One,
+    Shop: Shop,
     Two: Two
   },
   {

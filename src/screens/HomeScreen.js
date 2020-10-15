@@ -186,8 +186,8 @@ const HomeScreen = ({ navigation }) => {
           onPress={() => navigation.navigate('Bugs')}
         />
         <Button 
-          title='One'
-          onPress={() => navigation.navigate('One')}
+          title='Shop Plants'
+          onPress={() => navigation.navigate('Shop')}
         />
         <Button 
           title='Two'
