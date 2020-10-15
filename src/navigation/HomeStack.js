@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { createStackNavigator } from 'react-navigation-stack';
+import Bugs from '../screens/Bugs';
+import One from '../screens/One';
+import Two from '../screens/Two';
 
 // screens
 import HomeScreen from '../screens/HomeScreen';
@@ -18,7 +21,10 @@ HomeTabBarIcon.propTypes = {
 // /////////////////////////////////////////////////////////////////////////////
 const HomeStack = createStackNavigator(
   {
-    Home: HomeScreen
+    Home: HomeScreen,
+    Bugs: Bugs,
+    One: One,
+    Two: Two
   },
   {
     navigationOptions: {

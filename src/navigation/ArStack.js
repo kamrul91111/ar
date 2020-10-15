@@ -8,8 +8,6 @@ import MultiLevel2Screen from '../screens/MultiLevel2Screen';
 
 // icons
 import SvgPages from '../components/icons/Svg.Pages';
-import { ART } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
 
 const MultiTabBarIcon = ({ focused }) => <SvgPages active={focused} />;
 MultiTabBarIcon.propTypes = {
@@ -22,7 +20,7 @@ MultiTabBarIcon.propTypes = {
 const ArStack = createStackNavigator(
   {
     Ar: Ar,
-    MultiLevel2: MultiLevel2Screen
+    MultiLevel2: MultiLevel2Screen,
   },
   {
     navigationOptions: {
