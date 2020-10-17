@@ -6,6 +6,7 @@ import { gStyle } from '../constants';
 // TODO change this screen to class
 // components
 import NavigationBack from '../components/NavigationBack';
+import { color } from 'react-native-reanimated';
 
 const MultiLevel2Screen = () => {
   const theme = useTheme();
@@ -24,7 +25,8 @@ MultiLevel2Screen.navigationOptions = ({ navigation }) => ({
   headerLeft: () => <NavigationBack navigation={navigation} />,
   headerRight: () => <View style={{ flex: 1 }} />,
   headerTitleStyle: gStyle.headerTitleStyle,
-  title: 'Level 2'
+  title: 'Level 2',
+  color: 'green'
 });
 
 export default MultiLevel2Screen;

@@ -4,6 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Bugs from '../screens/Bugs';
 import Shop from '../screens/Shop';
 import Two from '../screens/Two';
+import MultiLevel2Screen from '../screens/MultiLevel2Screen'
 
 // screens
 import HomeScreen from '../screens/HomeScreen';
@@ -24,7 +25,8 @@ const HomeStack = createStackNavigator(
     Home: HomeScreen,
     Bugs: Bugs,
     Shop: Shop,
-    Two: Two
+    Two: Two,
+    Multi2: MultiLevel2Screen
   },
   {
     navigationOptions: {

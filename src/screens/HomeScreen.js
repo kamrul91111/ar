@@ -193,6 +193,10 @@ const HomeScreen = ({ navigation }) => {
           title='Two'
           onPress={() => navigation.navigate('Two')}
         />
+        <Button 
+          title='test'
+          onPress={() => navigation.navigate('MultiLevel2Screen')}
+        />
         {/* <TouchableOpacity
                   onPress={() => navigation.navigate('Bugs')}
         >
