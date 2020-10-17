@@ -49,6 +49,7 @@ const Shop = () => {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 10,
+    backgroundColor: '#8cd3ff'
   },
   thumbnail: {
     width: 350,
@@ -75,7 +76,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     textShadowColor: '#666',
     textShadowRadius: 10,
-    fontFamily: 'Baskerville',
   },
 h2: {
   textAlign: "center",
