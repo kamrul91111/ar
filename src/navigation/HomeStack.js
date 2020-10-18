@@ -4,6 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Bugs from '../screens/Bugs';
 import Shop from '../screens/Shop';
 import PlantingTips from '../screens/PlantingTips';
+import IndoorPlants from '../screens/IndoorPlants';
 
 // screens
 import HomeScreen from '../screens/HomeScreen';
@@ -24,7 +25,8 @@ const HomeStack = createStackNavigator(
     Home: HomeScreen,
     Bugs: Bugs,
     Shop: Shop,
-    PlantingTips: PlantingTips
+    PlantingTips: PlantingTips,
+    IndoorPlants: IndoorPlants
   },
   {
     navigationOptions: {
