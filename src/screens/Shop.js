@@ -1,12 +1,13 @@
 
 import React from 'react';
-import { View, Image, StyleSheet, TouchableOpacity, ScrollView, Text, Linking, Header } from 'react-native';
-
+import { View, Image, StyleSheet, TouchableOpacity, ScrollView, Text, Linking, StatusBar } from 'react-native';
+import { useTheme } from 'react-navigation';
 
 
 const Shop = () => {
   return (
     <ScrollView style={styles.container}>
+      <StatusBar backgroundColor = '#435d43' />
       <Text style={styles.h1}>Shop Plants</Text>
       <Text style={styles.header}>Welcome! We’ll direct you below to some useful links to Plants and gardening necessities that will bring your garden to life 😊</Text>
       <Text style={styles.h2}>View the links by clicking on the images below</Text>
@@ -49,7 +50,7 @@ const Shop = () => {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 10,
-    backgroundColor: '#8cd3ff'
+    backgroundColor: '#e9efe9'
   },
   thumbnail: {
     width: 350,
@@ -72,10 +73,11 @@ const styles = StyleSheet.create({
   h1: {
     textAlign: "center",
     fontSize: 35,
-    color: 'green',
+    color: 'purple',
     marginTop: 10,
     textShadowColor: '#666',
-    textShadowRadius: 10,
+    textShadowRadius: 6,
+    fontFamily: 'Roboto',
   },
 h2: {
   textAlign: "center",
@@ -84,5 +86,7 @@ h2: {
   fontFamily: 'Roboto',
 }
 });
+
+
 
 export default Shop;

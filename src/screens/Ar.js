@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView, Text, View, Switch, Button, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { ScrollView, Text, View, Switch, Button, TouchableOpacity, Image, StyleSheet, StatusBar } from 'react-native';
 import { useTheme } from 'react-navigation';
 import { gStyle } from '../constants';
 
@@ -10,15 +10,7 @@ const Ar = ({ navigation }) => {
 
   return (
       <View>
-        {/* <Button
-          onPress={() => navigation.navigate('MultiLevel2')}
-          title="Hello"
-        />
-        <TouchableOpacity
-            onPress={() => navigation.navigate('Bugs')}
-        >
-            <Text>Click me</Text>
-        </TouchableOpacity> */}
+      <StatusBar backgroundColor = '#00ff80' />
         <TouchableOpacity>
         <Image
         style={styles.image}
@@ -34,9 +26,7 @@ const styles = StyleSheet.create({
   image: {
     height: 300,
     width: 350,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center'
+    alignSelf: "center"
   }
 });
 
