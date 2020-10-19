@@ -1,134 +1,116 @@
-import React, { Component } from "react";
-import Geosuggest from "react-geosuggest";
-import Loader from "react-loader-spinner";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import Weather from '../components/Weather'
 
-import getUserLocation from "../../services/getLocation";
-import getWeatherForCity from "../../services/getWeather";
-import checkLocationPermission from "../../services/checkLocationPermission";
+const API_KEY ="5674703621c18e2a68c7c199061d51ca"
 
-class StatsScreen extends Component {
+export default class StatsScreen extends React.Component {
   state = {
-    weatherInformation: null,
-    city: null,
-    isRendering: false,
-    isLocationEnabled: true
+    isLoading: false,
+    temperature: 0,
+    weatherCondition: 0,
+    error: null
   };
 
-  async componentDidMount() {
-    const permissionState = await checkLocationPermission();
-    if(permissionState === "denied") {
-      this.setState({ isLocationEnabled: false });
-      return;
-    } else if (permissionState === "granted") {
-      this.setState({ isLocationEnabled: true });
-      this.getWeatherForCurrentLocation();
-      return;
-    } else {
-      this.setState({ isLocationEnabled: false });
-      navigator.geolocation.getCurrentPosition(() => {
-        this.setState({ isLocationEnabled: true });
-        this.getWeatherForCurrentLocation();
-      });
-    }
+  componentDidMount() {
+    this.getWeather();
+
   }
 
-  getWeatherForCurrentLocation = async () => {
-    this._geoSuggest.clear();
-    this.setState({ isRendering: true });
-    const city = await getUserLocation();
-    const { data: weatherData } = await getWeatherForCity(city);
-    const weatherInformation = {
-      weather: weatherData.weather[0],
-      main: weatherData.main,
-      country: weatherData.sys.country
-    };
-    this.setState({ city, weatherInformation, isRendering: false });
-  };
+  getWeather() {
 
-  separateByComma = (input) => {
-    const splittedStr = input.split(" ");
-    const result =  splittedStr.map(item => item.replace(",", "") );
-    return result.join(",");
+  fetch(`http://api.openweathermap.org/data/2.5/weather?lat=30&lon=50&APPID=5674703621c18e2a68c7c199061d51ca&units=metric`)
+    .then(response => response.json().then(data => data))
+    .then(result => {
+
+console.log(result.main.temp)
+console.log(result.weather)
+this.setState({
+
+  temperature:result.main.temp,
+  humidity:result.main.humidity,
+  weatherCondition: result.weather.id
+
+});
+    }/* Do whatever you want with this result */)
+    // .catch(error => /* Do something if error occurs */);
+    //   )
+    // .catch(error => /* Do something if error occurs */);
+//     fetch(`http://api.openweathermap.org/data/2.5/weather?lat=30&lon=50&APPID=5674703621c18e2a68c7c199061d51ca&units=metric`
+//     ).then(res => {
+//      return res.json();
+// }).then(function(res) {
+//     console.log(res.main.temp)
+
+//     this.setState({
+//       temperature:json.main.temp
+//     });
+//     console.log(res.main.temp)
+
+
   }
+  //   fetch(
+  //     `http://api.openweathermap.org/data/2.5/weather?lat=30&lon=50&APPID=5674703621c18e2a68c7c199061d51ca&units=metric`
+  //   ).then(res => res.json)
+  //     .then(res => {
+  //       console.log(res.json)
+  //       this.setState({
+  //         temperature: json.main.temp,
+  //         humidity: json.main.humidity,
 
-  onSuggestSelect = async suggest => {
-    this.setState({ isRendering: true });
-    if (!suggest) return;
-    const { label } = suggest;
-    const city = this.separateByComma(label);
-    try {
-      const { data: weatherData } = await getWeatherForCity(city);
-      const weatherInformation = {
-        weather: weatherData.weather[0],
-        main: weatherData.main
-      };
-      this.setState({ city: null, weatherInformation, isRendering: false });
-    } catch (error) {
-      console.log("Error ");
-      this.setState({
-        city: null,
-        weatherInformation: null,
-        isRendering: false
-      });
-    }
-  };
+  //     });
+  //   });
+  // }
+
+  //`http://api.openweathermap.org/data/2.5/weather?lat=30&lon=50&APPID=5674703621c18e2a68c7c199061d51ca&units=metric`
 
   render() {
-    const {
-      weatherInformation,
-      city,
-      isRendering,
-      isLocationEnabled
-    } = this.state;
-
-    if (!isLocationEnabled) {
-      return (
-        <div className="bg-dark">
-          <div className="warning">
-            <h3 className="u-font-size-s u-nowrap">Please enable location permission</h3>
-          </div>
-        </div>
-      );
-    }
-
+   
     return (
-      <div>
-        {isRendering && (
-          <div className="loader">
-            <Loader type="Oval" color="#FFF" height="30" width="30" />
-          </div>
-        )}
-        <Geosuggest
-          ref={el => (this._geoSuggest = el)}
-          placeholder="Search city name"
-          onSuggestSelect={this.onSuggestSelect}
-        />
-        <div className="weather-details">
-          {weatherInformation ? (
-            <React.Fragment>
-              <ul className="weather-details-wrapper">
-                <li className="weather-details__item u-font-size-xxl">
-                  {`${Math.round(weatherInformation.main.temp)}º`}
-                </li>
-                <li className="weather-details__item u-font-size-m">
-                  {weatherInformation.weather.main}
-                </li>
-                <li className="weather-details__item u-capitalize u-font-size-s">
-                  {`(${weatherInformation.weather.description})`}
-                </li>
-              </ul>
-              <button
-                className="btn"
-                onClick={this.getWeatherForCurrentLocation}
-              >
-                {city ? `${city}` : "Get weather for your location"}
-              </button>
-            </React.Fragment>
-          ) : (
-            <p className="u-font-size-s">Fetching weather data...</p>
-          )}
-        </div>
-      </div>
+      <View style={styles.weatherContainer}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.tempText}>{this.state.temperature}˚</Text>
+      </View>
+      <View style={styles.bodyContainer}>
+        <Text style={styles.subtitle}>Plants are  going to be thirtsty </Text>
+      </View>
+    </View>
+
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff'
+  },
+  weatherContainer: {
+    flex: 1,
+    backgroundColor: '#f7b733'
+  },
+  headerContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  tempText: {
+    fontSize: 48,
+    color: '#fff'
+  },
+  bodyContainer: {
+    flex: 2,
+    alignItems: 'flex-start',
+    justifyContent: 'flex-end',
+    paddingLeft: 25,
+    marginBottom: 40
+  },
+  title: {
+    fontSize: 48,
+    color: '#fff'
+  },
+  subtitle: {
+    fontSize: 24,
+    color: '#fff'
+  }
+});
