@@ -37,7 +37,7 @@ const DATA = [
   {
     name: 'View Outdoor Plants',
     photo: require('../assets/images/outdoor.png'),
-    id: 'PlantList'
+    id: 'OutdoorPlants'
   },
   {
     name: 'View Plant Bugs',

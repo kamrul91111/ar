@@ -90,7 +90,7 @@ export default class App extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.h1}>Indoor Plants</Text>
+        <Text style={styles.h1}>Outdoor Plants</Text>
         <FlatList
           // style={styles.listItem}
           data={this.state.plants}

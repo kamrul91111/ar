@@ -77,8 +77,8 @@ export default class App extends React.Component {
     console.log('FlatList Test:', this.state.plants);
     const renderItem = ({ item }) => (
       <>
-        <Text>{item.ID}</Text>
-        <Text>{item.Name}</Text>
+        {/* <Text>{item.ID}</Text> */}
+        <Text style={styles.name}>{item.Name}</Text>
         <Text>{item.Food}</Text>
         <Text>{item.Diseases}</Text>
         <Text>{item.Season}</Text>
@@ -90,9 +90,9 @@ export default class App extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Plants</Text>
+        <Text style={styles.h1}>Plants</Text>
         <FlatList
-          style={styles.listItem}
+          // style={styles.listItem}
           data={this.state.plants}
           keyExtractor={item => item.ID}
           renderItem={renderItem}
@@ -112,58 +112,25 @@ const styles = StyleSheet.create({
     fontSize: 50,
     textAlign: 'center',
     margin: 'auto',
-    backgroundColor: 'white',
-    alignSelf: 'center',
-    
+    alignSelf: 'center'
   },
   text: {
-    marginTop: 16,
-    fontSize: 34,
+    fontSize: 30,
     textAlign: 'center',
-    fontSize: 30
-  }
+    marginBottom: 10
+  },
+  name: {
+    fontSize: 20,
+    textAlign: "center"
+  },
+  h1: {
+    textAlign: "center",
+    fontSize: 35,
+    color: 'purple',
+    marginTop: 10,
+    textShadowColor: '#666',
+    textShadowRadius: 6,
+    fontFamily: 'Roboto',
+  },
 });
 
-// SettingsScreen.navigationOptions = ({ theme }) => {
-//   return {
-//     // headerLeft: () => (
-//     //   <View style={{ flex: 1, paddingLeft: 16 }}>
-//     //     <Text style={gStyle.text[theme]}>left</Text>
-//     //   </View>
-//     // ),
-//     // headerRight: () => (
-//     //   <View style={{ flex: 1, paddingRight: 16 }}>
-//     //     <Text style={gStyle.text[theme]}>right</Text>
-//     //   </View>
-//     // ),
-//     headerTitle: () => (
-//       <View style={{ flex: 1 }}>
-//       <Text>Plant List</Text>
-//       </View>
-//     )
-//   };
-// };
-
-// SettingsScreen.propTypes = {
-//   // required
-//   navigation: PropTypes.object.isRequired,
-//   screenProps: PropTypes.object.isRequired
-// };
-
-/*
-// shoutout @notbrent: https://snack.expo.io/H105kxsG7
-const shouldShowBackButton = stackRouteNavigation => {
-  const parent = stackRouteNavigation.dangerouslyGetParent();
-  return parent.state.routes.indexOf(stackRouteNavigation.state) > 0;
-};
-
-SettingsScreen.navigationOptions = ({ navigation }) => ({
-
-headerLeft: !shouldShowBackButton(navigation) ? (
-  <View style={{ flex: 1 }}>
-    <Text>left</Text>
-  </View>
-) : null,
-*/
-
-// export default SettingsScreen;
