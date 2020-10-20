@@ -6,11 +6,13 @@ import Shop from '../screens/Shop';
 import PlantingTips from '../screens/PlantingTips';
 import IndoorPlants from '../screens/IndoorPlants';
 
+
 // screens
 import HomeScreen from '../screens/HomeScreen';
 
 // icons
 import SvgHome from '../components/icons/Svg.Home';
+
 
 const HomeTabBarIcon = ({ focused }) => <SvgHome active={focused} />;
 HomeTabBarIcon.propTypes = {

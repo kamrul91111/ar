@@ -109,9 +109,12 @@ const styles = StyleSheet.create({
     // marginTop:60
   },
   listItem: {
-    fontSize: 40,
+    fontSize: 50,
     textAlign: 'center',
-    margin: 'auto'
+    margin: 'auto',
+    backgroundColor: 'white',
+    alignSelf: 'center',
+    
   },
   text: {
     marginTop: 16,
