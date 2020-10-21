@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View, FlatList } from 'react-native';
+import { Image, StyleSheet, Text, View, FlatList, ScrollView } from 'react-native';
 import PropTypes, { func } from 'prop-types';
 import { useTheme } from 'react-navigation';
 import { gStyle, images } from '../constants';
@@ -79,25 +79,24 @@ export default class App extends React.Component {
       <>
         {/* <Text>{item.ID}</Text> */}
         <Text style={styles.name}>{item.Name}</Text>
-        <Text>{item.Food}</Text>
-        <Text>{item.Diseases}</Text>
-        <Text>{item.Season}</Text>
-        <Text>{item.Type}</Text>
-        <Text>{item.Water_Frequency}</Text>
-        <Text>{item.Stores}</Text>
+        <Text style={styles.text}>{item.Food}</Text>
+        <Text style={styles.text}>{item.Diseases}</Text>
+        <Text style={styles.text}>{item.Season}</Text>
+        <Text style={styles.text}>{item.Type}</Text>
+        <Text style={styles.text}>{item.Water_Frequency}</Text>
+        <Text style={styles.text}>{item.Stores}</Text>
       </>
     );
 
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Text style={styles.h1}>Outdoor Plants</Text>
         <FlatList
-          // style={styles.listItem}
           data={this.state.plants}
           keyExtractor={item => item.ID}
           renderItem={renderItem}
         />
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -115,13 +114,14 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },
   text: {
-    fontSize: 30,
+    fontSize: 15,
     textAlign: 'center',
-    marginBottom: 10
+    padding: 2
   },
   name: {
-    fontSize: 20,
-    textAlign: "center"
+    fontSize: 25,
+    textAlign: "center",
+    marginTop: 5
   },
   h1: {
     textAlign: "center",

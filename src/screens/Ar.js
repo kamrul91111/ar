@@ -9,24 +9,45 @@ const Ar = ({ navigation }) => {
   const theme = useTheme();
 
   return (
-      <View>
-      <StatusBar backgroundColor = '#00ff80' />
-        <TouchableOpacity>
-        <Image
-        style={styles.image}
-        source={{ uri: 'https://memegenerator.net/img/instances/59916325/augmented-reality.jpg' }}
-      />
+      <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.button}
+      >
+        <Text style={styles.buttonText}>View in AR</Text>
       </TouchableOpacity>
-    </View>
+      </View>
   );
 };
 
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    marginHorizontal: 16,
+  },
   image: {
-    height: 300,
-    width: 350,
+    height: 100,
+    width: 150,
     alignSelf: "center"
+  },
+  button: {
+    alignSelf: "center",
+    backgroundColor: "#0099CC",
+    padding: 10,
+    marginBottom: 10,
+    // width: 300,
+    marginTop: 5,
+    width: 150, 
+    height: 150, 
+    borderRadius: 400/ 2,
+    alignContent: "center",
+    alignItems: "center"
+  },
+  buttonText: {
+    color: 'white',
+    textAlign: "center",
+    marginTop: 50
   }
 });
 
