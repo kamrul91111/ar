@@ -140,49 +140,49 @@ this.setState({
         <Text style={styles.text}>
             <Text style = {{fontWeight: "bold"}}>{"\n"}Day 1: {"\n"}
 </Text> 
-           <Text>{"\n"}Minimun Temperature: {this.state.d1min}˚ </Text> 
+           <Text>{"\n"}Minimum Temperature: {this.state.d1min}˚ </Text> 
            <Text>{"\n"}
 Maximum Temperature: {this.state.d1max}˚ </Text>
           < Text>{"\n"}Chance of Rain:  {this.state.d1pop}  </Text> 
           < Text>{"\n"}Day will have:  {this.state.d1d} </Text> 
           <Text style = {{fontWeight:  "bold"}}>{"\n"}{"\n"}{"\n"}Day 2: {"\n"}
 </Text> 
-           <Text>{"\n"}Minimun Temperature:  {this.state.d2min}˚ </Text> 
+           <Text>{"\n"}Minimum Temperature:  {this.state.d2min}˚ </Text> 
            <Text>{"\n"}
 Maximum Temperature: {this.state.d2max}˚ </Text>
           < Text>{"\n"}Chance of Rain:  {this.state.d2pop}  </Text> 
           < Text>{"\n"}Day will have:  { this.state.d2d} </Text> 
           <Text style = {{fontWeight:  "bold"}}>{"\n"}{"\n"}{"\n"}Day 3: {"\n"}
 </Text> 
-           <Text>{"\n"}Minimun Temperature:  {this.state.d3min}˚ </Text> 
+           <Text>{"\n"}Minimum Temperature:  {this.state.d3min}˚ </Text> 
            <Text>{"\n"}
 Maximum Temperature: {this.state.d3max}˚ </Text>
           < Text>{"\n"}Chance of Rain:  {this.state.d3pop}  </Text> 
           < Text>{"\n"}Day will have:  { this.state.d3d} </Text> 
           <Text style = {{fontWeight:  "bold"}}>{"\n"}{"\n"}{"\n"}Day 4: {"\n"}
 </Text> 
-           <Text>{"\n"}Minimun Temperature:  {this.state.d4min}˚ </Text> 
+           <Text>{"\n"}Minimum Temperature:  {this.state.d4min}˚ </Text> 
            <Text>{"\n"}
 Maximum Temperature: {this.state.d4max}˚ </Text>
           < Text>{"\n"}Chance of Rain:  {this.state.d4pop}  </Text> 
           < Text>{"\n"}Day will have:  { this.state.d4d} </Text> 
           <Text style = {{fontWeight:  "bold"}}>{"\n"}{"\n"}{"\n"}Day 5: {"\n"}
 </Text> 
-           <Text>{"\n"}Minimun Temperature:  {this.state.d5min}˚ </Text> 
+           <Text>{"\n"}Minimum Temperature:  {this.state.d5min}˚ </Text> 
            <Text>{"\n"}
 Maximum Temperature: {this.state.d5max}˚ </Text>
           < Text>{"\n"}Chance of Rain:  {this.state.d5pop}  </Text> 
           < Text>{"\n"}Day will have:  { this.state.d5d} </Text> 
           <Text style = {{fontWeight:  "bold"}}>{"\n"}{"\n"}{"\n"}Day 6: {"\n"}
 </Text> 
-           <Text>{"\n"}Minimun Temperature:  {this.state.d6min}˚ </Text> 
+           <Text>{"\n"}Minimum Temperature:  {this.state.d6min}˚ </Text> 
            <Text>{"\n"}
 Maximum Temperature: {this.state.d2max}˚ </Text>
           < Text>{"\n"}Chance of Rain:  {this.state.d6pop}  </Text> 
           < Text>{"\n"}Day will have:  { this.state.d6d} </Text> 
           <Text style = {{fontWeight:  "bold"}}>{"\n"}{"\n"}{"\n"}Day 7: {"\n"}
 </Text> 
-           <Text>{"\n"}Minimun Temperature:  {this.state.d7min}˚ </Text> 
+           <Text>{"\n"}Minimum Temperature:  {this.state.d7min}˚ </Text> 
            <Text>{"\n"}
 Maximum Temperature: {this.state.d7max}˚ </Text>
           < Text>{"\n"}Chance of Rain:  {this.state.d7pop}  </Text> 
