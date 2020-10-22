@@ -1,106 +1,121 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View, FlatList } from 'react-native';
-import PropTypes, { func } from 'prop-types';
+import PropTypes from 'prop-types';
+
+import { SliderBox } from 'react-native-image-slider-box';
+
+import {
+  ScrollView,
+  TouchableOpacity,
+  Text,
+  View,
+  StyleSheet,
+  FlatList,
+  Image,
+  Button
+} from 'react-native';
 import { useTheme } from 'react-navigation';
-import { gStyle, images } from '../constants';
+import { gStyle } from '../constants';
+import { AntDesign } from '@expo/vector-icons';
+
+// components
+
 import Touch from '../components/Touch';
-import { firebase } from '../firebase/config';
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
+const DATA = [
+  {
+    name: 'ANNUAL',
+    // "photo": "https:\/\/images.unsplash.com\/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6""
+    photo: require('../assets/images/visual.png'),
+    id: 'Annual'
+  },
+  {
+    name: 'BULB',
+    // "photo": "https:\/\/randomuser.me\/api\/portraits\/women\/44.jpg"
+    photo: require('../assets/images/indoor.png'),
+    id: 'Bulb'
+  },
+  {
+    name: 'FRUITS',
+    photo: require('../assets/images/outdoor.png'),
+    id: 'Fruits'
+  },
+  {
+    name: 'HERBS',
+    photo: require('../assets/images/pest.png'),
+    id: 'Herbs'
+  },
 
-    this.state = {
-      plants: [],
-      indoorPlants: []
-    };
-    this.readData();
-  }
+  {
+    name: 'HOUSEPLANT',
+    photo: require('../assets/images/shop.png'),
+    id: 'Houseplant'
+  },
 
-  // componentWillMount() {
-  //   var reference = firebase.database().ref('/');
-  //   reference.once('value').then(snapshot => {
-  //     this.setState({plants: snapshot.val()});
-  //     // console.log(snapshot.val());
-  //   });
-  // }
+  {
+    name: 'PRENNIAL',
+    id: 'Prennial'
+  },
+  {
+    name: 'ROSES',
+    photo: require('../assets/images/tips.png'),
+    id: 'Roses'
+  },
+  {
+    name: 'SHRUB',
+    photo: require('../assets/images/tips.png'),
+    id: 'Shrub'
+  },
+  {
+    name: 'TREE',
+    photo: require('../assets/images/tips.png'),
+    id: 'Tree'
+  },
+  {
+    name: 'VEGETABLE',
+    photo: require('../assets/images/tips.png'),
+    id: 'Vegetable'
+  },
 
-  // Array [
-  //   undefined,
-  //   Object {
-  //     "Diseases": "random disease",
-  //     "Food": "ABC manure",
-  //     "ID": 1,
-  //     "Instructions": "1. Dig hole, 2.Put seed",
-  //     "Name": "test",
-  //     "Season": "Summer",
-  //     "Stores": "Bunnings",
-  //     "Type": "indoor",
-  //     "Water_Frequency": "3 times a day",
-  //   },
-  // ]
+  {
+    name: 'VINE',
+    photo: require('../assets/images/tips.png'),
+    id: 'Vine'
+  },
+  {
+    name: 'WATER PLANTS',
+    photo: require('../assets/images/tips.png'),
+    id: 'Waterplant'
+  },
+  
+  
+];
 
-  Item({ item }) {
+
+const PlantList = ({ navigation }) => {
+  function Item({ item }) {
     return (
       <View style={styles.listItem}>
-        <View style={{ alignItems: 'center', flex: 1 }}>
-          {/* <Text style={{ fontWeight: 'bold', flex: 1, marginTop: 20 }}>
-    {item}
-    </Text> */}
-          <Text>{item.Description}</Text>
-        </View>
+        
+
+        <TouchableOpacity onPress={() => navigation.navigate(item.id)}>
+          <Text style={styles.textitem}>{item.name}</Text>
+        </TouchableOpacity>
       </View>
     );
   }
-
-  readData() {
-    var reference = firebase.database().ref('/');
-    reference.once('value').then(snapshot => {
-      let data = [];
-      for (let index = 0; index < snapshot.val().length; index++) {
-        const element = snapshot.val()[index];
-        // console.log("Array Object: ", element);
-        if (element) {
-          data.push(element);
-        }
-      }
-
-      this.setState({ plants: data });
-      // console.log("Snap.val(): ", snapshot.val());
-      // console.log("Plants State: ", this.state.plants);
-      // console.log(Object.keys(this.state.plants));
-      // console.log()
-    });
-  }
-
-  render() {
-    console.log('FlatList Test:', this.state.plants);
-    const renderItem = ({ item }) => (
-      <>
-        <Text>{item.ID}</Text>
-        <Text>{item.Name}</Text>
-        <Text>{item.Food}</Text>
-        <Text>{item.Diseases}</Text>
-        <Text>{item.Season}</Text>
-        <Text>{item.Type}</Text>
-        <Text>{item.Water_Frequency}</Text>
-        <Text>{item.Stores}</Text>
-      </>
-    );
-
-    return (
-      <View style={styles.container}>
-        <Text style={styles.text}>Plants</Text>
-        <FlatList
-          style={styles.listItem}
-          data={this.state.plants}
-          keyExtractor={item => item.ID}
-          renderItem={renderItem}
-        />
-      </View>
-    );
-  }
-}
+  return (
+    <ScrollView style={styles.container}>
+      <Text style ={styles.text}>Plant Encyclopedia </Text>
+      <FlatList
+        style={{ flex: 1 }}
+        vertical
+        data={DATA}
+        renderItem={({ item }) => <Item item={item} />}
+        numColumns={2}
+      />
+      </ScrollView>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -109,58 +124,37 @@ const styles = StyleSheet.create({
     // marginTop:60
   },
   listItem: {
-    fontSize: 40,
-    textAlign: 'center',
-    margin: 'auto'
+    margin: 5,
+    padding: 15,
+    backgroundColor: '#FFF',
+    width: '100%',
+    flex: 1,
+    alignSelf: 'center',
+    flexDirection: 'column',
+    alignItems: 'center',
+    borderRadius: 15,
+    justifyContent: 'flex-start'
   },
   text: {
     marginTop: 16,
-    fontSize: 34,
     textAlign: 'center',
     fontSize: 30
+  },
+  textitem: {
+    marginTop: 16,
+    textAlign: 'center',
+    fontSize: 15,
+    fontWeight: 'bold'
+  },
+
+  image: {
+    height: 300,
+    width: 350,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 
-// SettingsScreen.navigationOptions = ({ theme }) => {
-//   return {
-//     // headerLeft: () => (
-//     //   <View style={{ flex: 1, paddingLeft: 16 }}>
-//     //     <Text style={gStyle.text[theme]}>left</Text>
-//     //   </View>
-//     // ),
-//     // headerRight: () => (
-//     //   <View style={{ flex: 1, paddingRight: 16 }}>
-//     //     <Text style={gStyle.text[theme]}>right</Text>
-//     //   </View>
-//     // ),
-//     headerTitle: () => (
-//       <View style={{ flex: 1 }}>
-//       <Text>Plant List</Text>
-//       </View>
-//     )
-//   };
-// };
 
-// SettingsScreen.propTypes = {
-//   // required
-//   navigation: PropTypes.object.isRequired,
-//   screenProps: PropTypes.object.isRequired
-// };
-
-/*
-// shoutout @notbrent: https://snack.expo.io/H105kxsG7
-const shouldShowBackButton = stackRouteNavigation => {
-  const parent = stackRouteNavigation.dangerouslyGetParent();
-  return parent.state.routes.indexOf(stackRouteNavigation.state) > 0;
-};
-
-SettingsScreen.navigationOptions = ({ navigation }) => ({
-
-headerLeft: !shouldShowBackButton(navigation) ? (
-  <View style={{ flex: 1 }}>
-    <Text>left</Text>
-  </View>
-) : null,
-*/
-
-// export default SettingsScreen;
+export default PlantList;
