@@ -144,5 +144,4 @@ const styles = StyleSheet.create({
   }
 });
 
-
-export default Prennial;
+export default Perennial;
