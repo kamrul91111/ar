@@ -37,7 +37,7 @@ const DATA = [
   {
     name: 'View Outdoor Plants',
     photo: require('../assets/images/outdoor.png'),
-    id: 'PlantList'
+    id: 'OutdoorPlants'
   },
   {
     name: 'View Plant Bugs',
@@ -86,6 +86,7 @@ const HomeScreen = ({ navigation }) => {
   }
   return (
     <ScrollView style={styles.container}>
+      <Text style={styles.h1}>Gardening AR</Text>
       <FlatList
         style={{ flex: 1 }}
         vertical
@@ -136,6 +137,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#F7F7F7'
     // marginTop:60
   },
+  h1: {
+    textAlign: "center",
+    fontSize: 35,
+    color: 'black',
+    marginTop: 10,
+    textShadowColor: '#666',
+    textShadowRadius: 6,
+    fontFamily: 'Roboto',
+    marginBottom: 10
+  },
   listItem: {
     margin: 5,
     padding: 15,
@@ -169,155 +180,5 @@ const styles = StyleSheet.create({
   }
 });
 
-// const HomeScreen = ({ navigation }) => {
-//   const theme = useTheme();
-
-//   return (
-//     <View style={gStyle.container[theme]}>
-//       <ScrollView contentContainerStyle={gStyle.contentContainer}>
-//         <Text style={gStyle.text[theme]}>Home</Text>
-//         <View style={styles.listItem}>
-//           <Image
-//             source={{
-//               uri:
-//                 'https://cdn.pixabay.com/photo/2020/04/17/19/48/city-5056657_960_720.png'
-//             }}
-//             style={{ width: 60, height: 60, borderRadius: 30 }}
-//           />
-
-//           <TouchableOpacity
-//             style={{
-//               height: 50,
-//               width: 50,
-//               justifyContent: 'center',
-//               alignItems: 'center'
-//             }}
-//             onPress={() => navigation.navigate('Shop')}
-//           >
-//             <Text style={{ color: 'green' }}>HEllo</Text>
-//           </TouchableOpacity>
-//         </View>
-//         <View style={styles.listItem}>
-//           <Image
-//             source={{
-//               uri:
-//                 'https://cdn.pixabay.com/photo/2020/04/17/19/48/city-5056657_960_720.png'
-//             }}
-//             style={{ width: 60, height: 60, borderRadius: 30 }}
-//           />
-
-//           <TouchableOpacity
-//             style={{
-//               height: 50,
-//               width: 50,
-//               justifyContent: 'center',
-//               alignItems: 'center'
-//             }}
-//             onPress={() => navigation.navigate('Shop')}
-//           >
-//             <Text style={{ color: 'green' }}>HEllo</Text>
-//           </TouchableOpacity>
-//         </View>
-//         <View style={styles.listItem}>
-//           <Image
-//             source={{
-//               uri:
-//                 'https://cdn.pixabay.com/photo/2020/04/17/19/48/city-5056657_960_720.png'
-//             }}
-//             style={{ width: 60, height: 60, borderRadius: 30 }}
-//           />
-
-//           <TouchableOpacity
-//             style={{
-//               height: 50,
-//               width: 50,
-//               justifyContent: 'center',
-//               alignItems: 'center'
-//             }}
-//             onPress={() => navigation.navigate('Shop')}
-//           >
-//             <Text style={{ color: 'green' }}>HEllo</Text>
-//           </TouchableOpacity>
-//         </View>
-//         <View style={styles.listItem}>
-//           <Image
-//             source={{
-//               uri:
-//                 'https://cdn.pixabay.com/photo/2020/04/17/19/48/city-5056657_960_720.png'
-//             }}
-//             style={{ width: 60, height: 60, borderRadius: 30 }}
-//           />
-
-//           <TouchableOpacity
-//             style={{
-//               height: 50,
-//               width: 50,
-//               justifyContent: 'center',
-//               alignItems: 'center'
-//             }}
-//             onPress={() => navigation.navigate('Shop')}
-//           >
-//             <Text style={{ color: 'green' }}>HEllo</Text>
-//           </TouchableOpacity>
-//         </View>
-
-//         {/* <View style={gStyle.spacer64} />
-//         <Button title="Bugs" onPress={() => navigation.navigate('Bugs')} />
-//         <Button
-//           title="Shop Plants"
-//           onPress={() => navigation.navigate('Shop')}
-//         />
-//         <Button
-//           title="Planting Tips"
-//           onPress={() => navigation.navigate('PlantingTips')}
-//         /> */}
-//         {/* <TouchableOpacity
-//                   onPress={() => navigation.navigate('Bugs')}
-//         >
-//         <Image
-//         style={styles.image}
-//         source={{ uri: 'https://memegenerator.net/img/instances/59916325/augmented-reality.jpg' }}
-//       />
-//       </TouchableOpacity> */}
-//         {/* <Touch
-//           onPress={() => screenProps.updateTheme('light')}
-//           text="Light theme"
-//         />
-//         <Touch
-//           onPress={() => screenProps.updateTheme('dark')}
-//           text="Dark theme"
-//         /> */}
-//       </ScrollView>
-//     </View>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   image: {
-//     height: 200,
-//     width: 200
-//   }
-//   // listItem: {
-//   //   margin: 10,
-//   //   padding: 10,
-//   //   backgroundColor: '#FFF',
-//   //   width: '50%',
-//   //   flex: 1,
-//   //   alignSelf: 'center',
-//   //   flexDirection: 'row',
-//   //   borderRadius: 5,
-//   //   justifyContent: 'flex-start'
-//   // }
-// });
-// // HomeScreen.navigationOptions = {
-// //   headerTitleStyle: gStyle.headerTitleStyle,
-// //   title: 'Home'
-// // };
-
-// // HomeScreen.propTypes = {
-// //   required
-// //   navigation: PropTypes.object.isRequired,
-// //   screenProps: PropTypes.object.isRequired
-// // };
 
 export default HomeScreen;

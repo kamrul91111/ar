@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView, Text, View, Switch, Button, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { ScrollView, Text, View, Switch, Button, TouchableOpacity, Image, StyleSheet, StatusBar } from 'react-native';
 import { useTheme } from 'react-navigation';
 import { gStyle } from '../constants';
 
@@ -9,34 +9,45 @@ const Ar = ({ navigation }) => {
   const theme = useTheme();
 
   return (
-      <View>
-        {/* <Button
-          onPress={() => navigation.navigate('MultiLevel2')}
-          title="Hello"
-        />
-        <TouchableOpacity
-            onPress={() => navigation.navigate('Bugs')}
-        >
-            <Text>Click me</Text>
-        </TouchableOpacity> */}
-        <TouchableOpacity>
-        <Image
-        style={styles.image}
-        source={{ uri: 'https://memegenerator.net/img/instances/59916325/augmented-reality.jpg' }}
-      />
+      <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.button}
+      >
+        <Text style={styles.buttonText}>View in AR</Text>
       </TouchableOpacity>
-    </View>
+      </View>
   );
 };
 
 
 const styles = StyleSheet.create({
-  image: {
-    height: 300,
-    width: 350,
-    flexDirection: 'column',
+  container: {
+    flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    marginHorizontal: 16,
+  },
+  image: {
+    height: 100,
+    width: 150,
+    alignSelf: "center"
+  },
+  button: {
+    alignSelf: "center",
+    backgroundColor: "#0099CC",
+    padding: 10,
+    marginBottom: 10,
+    // width: 300,
+    marginTop: 5,
+    width: 150, 
+    height: 150, 
+    borderRadius: 400/ 2,
+    alignContent: "center",
+    alignItems: "center"
+  },
+  buttonText: {
+    color: 'white',
+    textAlign: "center",
+    marginTop: 50
   }
 });
 

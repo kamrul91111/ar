@@ -1,4 +1,5 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 
 import { SliderBox } from 'react-native-image-slider-box';
@@ -13,6 +14,10 @@ import {
   Image,
   Button
 } from 'react-native';
+
+//import { Image, StyleSheet, Text, View, FlatList, ScrollView } from 'react-native';
+//import PropTypes, { func } from 'prop-types';
+
 import { useTheme } from 'react-navigation';
 import { gStyle } from '../constants';
 import { AntDesign } from '@expo/vector-icons';
@@ -91,9 +96,27 @@ const DATA = [
 ];
 
 
+
+  /*render() {
+    console.log('FlatList Test:', this.state.plants);
+    const renderItem = ({ item }) => (
+      <>
+        {/* <Text>{item.ID}</Text> */}
+        <Text style={styles.name}>{item.Name}</Text>
+        <Text style={styles.text}>{item.Food}</Text>
+        <Text style={styles.text}>{item.Diseases}</Text>
+        <Text style={styles.text}>{item.Season}</Text>
+        <Text style={styles.text}>{item.Type}</Text>
+        <Text style={styles.text}>{item.Water_Frequency}</Text>
+        <Text style={styles.text}>{item.Stores}</Text>
+      </>
+    ); */
+
+
 const PlantList = ({ navigation }) => {
   function Item({ item }) {
     return (
+
       <View style={styles.listItem}>
         
 
@@ -101,6 +124,16 @@ const PlantList = ({ navigation }) => {
           <Text style={styles.textitem}>{item.name}</Text>
         </TouchableOpacity>
       </View>
+
+     /* <ScrollView style={styles.container}>
+        <Text style={styles.h1}>Plants</Text>
+        <FlatList
+          data={this.state.plants}
+          keyExtractor={item => item.ID}
+          renderItem={renderItem}
+        />
+      </ScrollView> */
+
     );
   }
   return (
@@ -124,6 +157,7 @@ const styles = StyleSheet.create({
     // marginTop:60
   },
   listItem: {
+
     margin: 5,
     padding: 15,
     backgroundColor: '#FFF',
@@ -158,3 +192,31 @@ const styles = StyleSheet.create({
 
 
 export default PlantList;
+
+    /*fontSize: 50,
+    textAlign: 'center',
+    margin: 'auto',
+    alignSelf: 'center'
+  },
+  text: {
+    fontSize: 15,
+    textAlign: 'center',
+    padding: 2
+  },
+  name: {
+    fontSize: 25,
+    textAlign: "center",
+    marginTop: 5
+  },
+  h1: {
+    textAlign: "center",
+    fontSize: 35,
+    color: 'purple',
+    marginTop: 10,
+    textShadowColor: '#666',
+    textShadowRadius: 6,
+    fontFamily: 'Roboto',
+  },
+}); */
+
+

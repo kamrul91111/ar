@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View, FlatList, ScrollView, StatusBar } from 'react-native';
+import { Image, StyleSheet, Text, View, FlatList, ScrollView } from 'react-native';
 import PropTypes, { func } from 'prop-types';
 import { useTheme } from 'react-navigation';
 import { gStyle, images } from '../constants';
@@ -90,8 +90,7 @@ export default class App extends React.Component {
 
     return (
       <ScrollView style={styles.container}>
-                  <StatusBar backgroundColor = '#ffba00' />
-        <Text style={styles.h1}>Indoor Plants</Text>
+        <Text style={styles.h1}>Outdoor Plants</Text>
         <FlatList
           data={this.state.plants}
           keyExtractor={item => item.ID}

@@ -9,18 +9,19 @@ import {
   Image,
   Alert,
 } from 'react-native';
+
 import {
   ViroARSceneNavigator
 } from 'react-viro';
 
-import renderIf from './js/helpers/renderIf';
-var InitialARScene = require('./js/ARGardening');
+import renderIf from '..helpers/renderIf';
+var InitialARScene = require('./ARGardening');
 
 // Array of 3d models that we use in this sample. This app switches between this these models.
 var objArray = [
-  require('./js/res/plant2/indoorplant_02.obj'),
-  require('./js/res/plant3/12974_crocus_flower_v1_l3.obj'),
-  require('./js/res/plant4/tree.obj')];
+  require('../res/plant2/indoorplant_02.obj'),
+  require('../res/plant3/12974_crocus_flower_v1_l3.obj'),
+  require('../res/plant4/tree.obj')];
 
 export default class ViroSample extends Component {
   constructor() {
@@ -55,17 +56,11 @@ export default class ViroSample extends Component {
           </View>)
         }
 
-        <View style={{position: 'absolute',  left: 10, right: 0, bottom: 77, alignItems: 'center'}}>
+        <View style={{position: 'absolute',  left: 0, right: 0, bottom: 77, alignItems: 'center'}}>
           <TouchableHighlight style={localStyles.buttons}
             onPress={this._onDisplayDialog}
             underlayColor={'#00000000'} >
-            <Image source={require("./js/res/btn_mode_objects.png")} />
-          </TouchableHighlight>
-        </View>
-        <View style={{position: 'absolute',  left: 0, right: 10, bottom: 77, alignItems: 'center'}}>
-          <TouchableHighlight style={localStyles.buttons}
-            underlayColor={'#00000000'} >
-            <Image source={require("./js/res/btn_back.png")} />
+            <Image source={require("../res/btn_mode_objects.png")} />
           </TouchableHighlight>
         </View>
       </View>
@@ -143,7 +138,7 @@ var localStyles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#ffffff00',
-  },
+  }
 });
 
 module.exports = ViroSample
