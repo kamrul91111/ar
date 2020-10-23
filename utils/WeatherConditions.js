@@ -3,32 +3,32 @@
   rain: {
     color: '#005BEA',
     title: 'Raining',
-    subtitle: 'Get a cup of coffee',
+    subtitle: 'No need to water the plants for today',
     icon: 'weather-rainy'
   },
   clear: {
     color: '#f7b733',
     title: 'So Sunny',
-    subtitle: 'It is hurting my eyes',
+    subtitle: 'Plants are going to be thirsty',
     icon: 'weather-sunny'
   },
   thunderstorm: {
     color: '#616161',
     title: 'A Storm is coming',
-    subtitle: 'Because Gods are angry',
+    subtitle: 'keep those plant vases inside ',
     icon: 'weather-lightning'
   },
   clouds: {
     color: '#1F1C2C',
     title: 'Clouds',
-    subtitle: 'Everywhere',
+    subtitle: 'Plants are enjoying outside',
     icon: 'weather-cloudy'
   },
 
   snow: {
     color: '#00d2ff',
     title: 'Snow',
-    subtitle: 'Get out and build a snowman for me',
+    subtitle: 'Put some blanket on plants ',
     icon: 'weather-snowy'
   },
   drizzle: {
@@ -40,7 +40,7 @@
   haze: {
     color: '#66A6FF',
     title: 'Haze',
-    subtitle: 'Another name for Partial Raining',
+    subtitle: 'Raining with stones .Oh no...',
     icon: 'weather-hail'
   },
   mist: {
